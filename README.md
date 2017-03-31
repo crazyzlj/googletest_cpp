@@ -1,5 +1,7 @@
 # C++ UnitTest demo based on Googletest
 
+[![Build Status](https://travis-ci.org/crazyzlj/googletest_cpp.svg?branch=master)](https://travis-ci.org/crazyzlj/googletest_cpp)  [![Build status](https://ci.appveyor.com/api/projects/status/38joe0ke192ecj5i?svg=true)](https://ci.appveyor.com/project/crazyzlj/googletest-cpp)
+
 参考：
 + https://github.com/ShawInnes/cpp-unittesting
 + https://github.com/Crascit/DownloadProject
