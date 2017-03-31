@@ -3,7 +3,7 @@ branches:
   - master
 image: Visual Studio 2013
 build_script:
-  - cd C:\projects\seims\seims
+  - cd C:\projects\googletest-cpp
   - ps: "ls"
   - mkdir build
   - cd build
