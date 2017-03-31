@@ -10,6 +10,7 @@ install_manifest.txt
 *.filters
 
 build/
+build*/
 vsbuild/
 
 bin/*
@@ -21,7 +22,7 @@ Win32/*
 *.o
 *.a
 
-# force libs to not be ignored
-!lib/**
+include/*
+lib/*
 
 .idea/

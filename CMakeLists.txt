@@ -6,8 +6,8 @@ set(CMAKE_MODULE_PATH
     ${CMAKE_CURRENT_SOURCE_DIR}/cmake
     ${CMAKE_MODULE_PATH}
 )
-MESSAGE(${CMAKE_MODULE_PATH})
 include(SetThreadFlagMSVC)
+SET(CMAKE_INSTALL_PREFIX ${CMAKE_SOURCE_DIR})
 ###########################################################
 #########  Git clone the latest googletest   ##############
 ###########################################################
@@ -36,6 +36,7 @@ set(PROJECT_LIB_NAME ${PROJECT_NAME_STR}lib)
 include_directories(${PROJECT_SOURCE_DIR}/src)
 file(GLOB LIB_SRC_FILES ${PROJECT_SOURCE_DIR}/src/demo.cpp)
 add_library(${PROJECT_LIB_NAME} ${LIB_SRC_FILES})
+install(TARGETS ${PROJECT_LIB_NAME} DESTINATION bin)
 
 ###########################################################
 ######              unittest executable        ############
@@ -46,7 +47,7 @@ file(GLOB TEST_SRC_FILES ${PROJECT_SOURCE_DIR}/test/*.cpp)
 add_executable(${PROJECT_TEST_NAME} ${TEST_SRC_FILES})
 target_link_libraries(${PROJECT_TEST_NAME} ${PROJECT_LIB_NAME} gtest gmock_main)
 add_test(${PROJECT_TEST_NAME} ${PROJECT_TEST_NAME})
-
+install(TARGETS ${PROJECT_TEST_NAME} DESTINATION bin)
 ###########################################################
 ######                Main executable          ############
 ###########################################################
@@ -54,3 +55,4 @@ set(PROJECT_NAME ${PROJECT_NAME_STR})
 file(GLOB MAIN_SRC_FILES ${PROJECT_SOURCE_DIR}/src/main.cpp)
 add_executable(${PROJECT_NAME} ${MAIN_SRC_FILES})
 target_link_libraries(${PROJECT_NAME} ${PROJECT_LIB_NAME})
+install(TARGETS ${PROJECT_NAME} DESTINATION bin)
