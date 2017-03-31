@@ -1,0 +1,16 @@
+branches:
+  only:
+  - master
+image: Visual Studio 2013
+build_script:
+  - cd C:\projects\seims\seims
+  - ps: "ls"
+  - mkdir build
+  - cd build
+  # Release
+  - cmake -G "Visual Studio 12 Win64" ..
+  - msbuild unittest_demo.sln /p:Configuration=Release
+  - Release\unittest_demo_test
+  # Debug
+  - msbuild unittest_demo.sln /p:Configuration=Debug
+  - Debug\unittest_demo_test
