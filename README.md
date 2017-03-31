@@ -17,7 +17,8 @@ mkdir build
 cd build
 cmake ..
 make
-bin/unittest_demo_test
+make install
+../bin/unittest_demo_test
 ```
 ## Windows
 打开VS2013开发人员命令提示：
